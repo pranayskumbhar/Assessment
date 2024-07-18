@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<h1>Welcome</h1>
+<button class="btm-click">Click Me</button>
+<div class="fill-grid"></div>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.btm-click').click(function () {
+            $('.fill-grid').empty();
+            console.log(location.origin + "/Home/GetListQuery");
+            $.ajax({
+                type: "POST",
+                url: location.origin + "/Home/GetListQuery",
+              
+             
+                success: function (data) {
+                    $('.fill-grid').html(data);
+                },
+                failure: function (response) {
+                    alert("failure function");
+
+                },
+                error: function (response) {
+                    alert("error function");
+                }
+            });
+
+        })
+    });
+
+</script>

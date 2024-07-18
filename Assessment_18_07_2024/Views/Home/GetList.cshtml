@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Assessment_18_07_2024.Models.Student>
+ 
+@{
+    ViewData["Title"] = "GetList";
+    Layout = null;
+}
+
+ 
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.create_date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.create_date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
